@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 # Import CORS and enable it for all routes
 from flask_cors import CORS
-from transformers import GPT2Tokenizer, GPTNeoForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
@@ -16,6 +16,7 @@ CORS(app)
 
 # Conversation history to maintain context
 conversation_history = []
+step = 0
 
 @app.route('/chat', methods=['POST'])
 def chat():
