@@ -19,4 +19,4 @@ services:
     volumes:
       - ./chat:/app
     ports:
-      - "3000:3000"
+      - "3023:3023"
